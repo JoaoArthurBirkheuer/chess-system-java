@@ -29,10 +29,18 @@ public class ChessMatch {
 		Position source = sourcePosition.toPosition();
 		Position target = targetPosition.toPosition();
 		validateSourcePosition(source);
+		validateTargetPosition(source, target);
 		Piece capturedPiece = makeMove(source, target);
 		return (ChessPiece) capturedPiece;
 	}
 	
+	private void validateTargetPosition(Position source, Position target) {
+		// TODO Auto-generated method stub
+		if(!board.piece(source).possibleMove(target)) {
+			throw new ChessException("The chosen piece can't move to target position");
+		}
+	}
+
 	private void validateSourcePosition(Position p) {
 		if(!board.thereIsAPiece(p)) {
 			throw new ChessException("There is no piece on source position");
