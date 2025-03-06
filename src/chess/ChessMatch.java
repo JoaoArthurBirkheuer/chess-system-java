@@ -1,7 +1,6 @@
 package chess;
 
 import boardgame.Board;
-import boardgame.BoardException;
 import boardgame.Piece;
 import boardgame.Position;
 import chess.pieces.King;
@@ -38,6 +37,9 @@ public class ChessMatch {
 		if(!board.thereIsAPiece(p)) {
 			throw new ChessException("There is no piece on source position");
 			// BoardException is also a ChessException
+		}
+		if(!board.piece(p).isThereAnyPossibleMove()) {
+			throw new ChessException("There is no possible moves for the chosen piece");
 		}
 	}
 	
