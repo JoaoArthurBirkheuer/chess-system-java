@@ -38,14 +38,19 @@ public class Program {
 			
 			ChessPiece captured = chessMatch.performChessMove(source, target);
 			}
-			catch(ChessException chessE) {
-				System.out.println(chessE.getMessage());
-				sc.nextLine();
-			}
-			catch(InputMismatchException ime) {
-				System.out.println(ime.getMessage());
-				sc.nextLine();
-			}
+			catch (ChessException e) {
+		        System.out.println(e.getMessage());
+		        sc.nextLine();
+		    } 
+		    catch (InputMismatchException ime) {
+		        System.out.println(ime.getMessage());
+		        sc.nextLine();
+		    }
+		    catch (Exception e) {
+		        System.out.println("Unexpected error: " + e);
+		        e.printStackTrace();
+		        sc.nextLine();
+		    }
 		}
 		// UI.printBoard(chessMatch.getPieces());
 	}
