@@ -34,6 +34,12 @@ public class ChessMatch {
 		return (ChessPiece) capturedPiece;
 	}
 	
+	public boolean[][] possibleMoves(ChessPosition src){
+		Position p = src.toPosition();
+		validateSourcePosition(p);
+		return board.piece(p).possibleMoves();
+	}
+	
 	private void validateTargetPosition(Position source, Position target) {
 		// TODO Auto-generated method stub
 		if(!board.piece(source).possibleMove(target)) {
